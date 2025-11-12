@@ -1,0 +1,65 @@
+\documentclass[../cdg-all.tex]{subfiles}
+\begin{document}
+\section{Условия совместности для системы Гаусса-Вейнгартена. Равенства Гаусса и Петерсона-Майнарди-Кодацци.
+Блистательная теорема Гаусса}
+Условия совместности для уравнений Г и ПМК:
+\begin{multline*}
+  %\label{eq:g}
+  \frac{\partial \Gamma_{sj}^k}{\partial x^i}r_k + \frac{\partial r_l}{\partial x^i}\Gamma_{sj}^l + \frac{\partial b_{sj}}{\partial x^i}m + \frac{\partial m}{\partial x^i}b_{sj}=
+  \frac{\partial \Gamma_{sj}^k}{\partial x^i}r_k + (\Gamma_{li}^kr_k+b_{li}m)\Gamma_{sj}^l + \frac{\partial b_{sj}}{\partial x^i}m -b_{sj}\beta_i^kr_k=\\
+  (\frac{\partial \Gamma_{sj}^k}{\partial x^i}+\Gamma_{li}^k\Gamma_{sj}^l-b_{sj}\beta_i^k)r_k + (b_{li}\Gamma_{sj}^l+ \frac{\partial b_{sj}}{\partial x^i})m
+\end{multline*}
+Поменяем местами индексы $i,j$ и получим условия совместности:
+\begin{equation}
+  \label{eq:g}
+  \tag{\text{Г}}
+  \frac{\partial \Gamma_{sj}^k}{\partial x^i}+\Gamma_{li}^k\Gamma_{sj}^l-b_{sj}\beta_i^k = \frac{\partial \Gamma_{si}^k}{\partial x^j}+\Gamma_{lj}^k\Gamma_{si}^l-b_{si}\beta_j^k
+\end{equation}
+\begin{equation}
+  \label{eq:pmc}
+  \tag{\text{ПМК}}
+  b_{li}\Gamma_{sj}^l+ \frac{\partial b_{sj}}{\partial x^i} = b_{lj}\Gamma_{si}^l+ \frac{\partial b_{si}}{\partial x^j}
+\end{equation}
+\begin{definition}[Уравнения Г и ПМК]
+  \[
+    \frac{\partial\Gamma_{sj}^k}{\partial x^i} - \frac{\partial\Gamma_{si}^k}{\partial x^j} + \Gamma_{sj}^l\Gamma_{li}^k - \Gamma_{si}^l\Gamma_{lj}^k - 
+    \beta_{sj}b_i^k - \beta_{si}b_j^k = 0
+  \]
+  \[
+    \Gamma_{sj}^{l}b_{li} - \Gamma_{si}^{l}b_{lj} + \frac{\partial b_{sj}}{\partial x^i} - \frac{\partial b_{si}}{\partial x^j} = 0
+  \]
+\end{definition}
+
+\begin{theorem}
+  Система Гаусса-Вейнгартена совместна $\Leftrightarrow$ выполнены равенства Гаусса и Петерсона-Майнарди-Кодацци.
+\end{theorem}
+\begin{proof} 
+  $(\Rightarrow)$ Уравнения $\ref{eq:g}$ и $\ref{eq:pmc}$, очевидно, выполняются. 
+  \begin{equation*}
+    -\frac{\partial^2 m}{\partial x^j \partial x^i} = \frac{\partial \beta_j^k}{\partial x^i}r_k + \beta_j^l\frac{\partial r_l}{\partial x^i} = 
+    \frac{\partial \beta_j^k}{\partial x^i}r_k + \beta_j^l(\Gamma_{li}^k r_k + b_{li}m) = 
+    (\frac{\partial \beta_j^k}{\partial x^i}+\beta_j^l\Gamma_{li}^k)r_k +(\beta_j^l b_{li})m
+  \end{equation*}
+  Тогда условия совместности для $\frac{\partial^2 m}{\partial x^j \partial x^i}$:
+  \begin{equation}
+    \label{eq:a}
+    \tag{a}
+    \frac{\partial \beta_j^k}{\partial x^i}+\beta_j^l\Gamma_{li}^k = \frac{\partial \beta_i^k}{\partial x^j}+\beta_i^l\Gamma_{lj}^k
+  \end{equation}
+  \begin{equation} 
+    \tag{b}
+    \label{eq:b}
+    \beta_j^l b_{li} = \beta_i^l b_{lj}
+  \end{equation}
+  Уравнение (\ref{eq:b}) выполняется автоматически, так как 
+  \[
+  g^{sl}b_{sj}b_{li} - g^{sl}b_{si}b_{lj} = g^{sl}b_{sj}b_{li} - g^{ls}b_{li}b_{sj} = 0
+  \]
+  А уравнение (\ref{eq:a}) выполняется, если выполняется \ref{eq:pmc}
+  
+     
+  
+\end{proof}
+
+\newpage
+\end{document}

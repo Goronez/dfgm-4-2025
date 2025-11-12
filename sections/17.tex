@@ -1,0 +1,104 @@
+\documentclass[../cdg-all.tex]{subfiles}
+\begin{document}
+\section{Условие совместности системы дифференциальных уравнений. Теорема о разрешимости.}
+
+Пусть $x\in D\subset \mathbb{R}^n, y,y_0\in\mathbb{R}^m, f_j(x,y):V\to\mathbb{R},(x_0,y_0)\in V\subset\mathbb{R}^{n+m}$ и 
+\begin{equation*}
+  \label{eq:17}
+  \tag{*}
+  \left\{
+    \begin{aligned}
+    & \frac{\partial y}{\partial x^j} = f_j(x,y) \\
+    & y(x_0) = y_0  
+    \end{aligned}
+    \right.
+\end{equation*}
+Продифференцируем первое уравнение по $x^i$:
+\begin{equation*}
+  \frac{\partial^2 y}{\partial x^j\partial x^i} = \frac{\partial f_j}{\partial x^i} + \frac{\partial f_j}{\partial y^\alpha}\frac{\partial y^\alpha}{\partial x^i} = 
+  \frac{\partial f_j}{\partial x^i} + \frac{\partial f_j}{\partial y^\alpha}f^\alpha_i
+\end{equation*}
+Аналогично для $f_i(x,y)$ и $x^j$:
+\begin{equation*}
+  \frac{\partial^2 y}{\partial x^i\partial x^j} = \frac{\partial f_i}{\partial x^j} + \frac{\partial f_i}{\partial y^\alpha}\frac{\partial y^\alpha}{\partial x^j} = 
+  \frac{\partial f_i}{\partial x^j} + \frac{\partial f_i}{\partial y^\alpha}f^\alpha_j
+\end{equation*}
+
+\begin{definition}
+  Система уравнений $(\ref{eq:17})$ удовлетворяет в $V$ условиям совместности, если 
+  $\frac{\partial f_j}{\partial x^i} +\frac{\partial f_j}{\partial y^\alpha}f_i^\alpha=\frac{\partial f_i}{\partial x^j}+\frac{\partial f_i}{\partial y^\alpha}f_j^\alpha$. 
+\end{definition}
+
+\begin{theorem}
+  Пусть $(\ref{eq:17})$ удовлетворяет в $V$ условиям совместности. Тогда в некоторой окрестности точки $x_0$ $\exists!$ гладкая функция $y(x)$, удовлетворяющая $(\ref{eq:17})$
+  и условию $y(x_0) = y_0$.
+\end{theorem}
+\begin{proof}
+  Пусть 
+  \begin{equation}
+    \label{eq:17.1}
+    \left\{
+    \begin{aligned}
+      & \frac{\partial y^{(1)}}{\partial x^1} = f_1(x^1, x_0^2, \ldots, x_0^n, y^{(1)}) \\
+      & y^{(1)}|_{x^1=x_0^1} = y_0
+    \end{aligned}
+    \right.
+  \end{equation}
+  По теореме единственности у данной задачи Коши есть единственное решение $y^{(1)}(x^1,x_0^2,\ldots, x_0^n)$ на некотором интервале.
+  Рассмотрим систему 
+  \begin{equation}
+    \label{eq:17.2}
+    \left\{
+    \begin{aligned}
+      & \frac{\partial y^{(2)}}{\partial x^2} = f_2(x^1, x^2,x_0^3 \ldots, x_0^n, y^{(1)}) \\
+      & y^{(2)}|_{x^2=x_0^2} = y^{(1)}(x^1, x_0^2, \ldots, x_0^n)
+    \end{aligned}
+    \right.
+  \end{equation}
+  Правые части системы $(\ref{eq:17.2})$ зависят от $x^1$ как от параметра. Пользуясь теоремой единственности и теоремой о гладкой зависимости от параметра, находим
+  функцию $y^{(2)}(x^1, x^2, x_0^3, \ldots, x_0^n)$, удовлетворяющую системе $(\ref{eq:17.2})$.
+  Но данная функция также удовлетворяет системе $(\ref{eq:17.1})$ поскольку:
+  \[
+    g = \frac{\partial y^{(2)}}{\partial x^1} - f_1(x^1, x^2, x_0^3,\ldots,x_0^n, y^{(2)})
+  \]
+\begin{equation*} 
+  \label{eq:17.3}
+  \frac{\partial g}{\partial x^2} = \frac{\partial^2 y^{(2)}}{\partial x^1\partial x^2} - \frac{\partial f_1}{\partial x^2} - 
+  \frac{\partial f_1}{\partial y^\alpha}\frac{\partial y^{(2)\alpha}}{\partial x^2} = 
+  \frac{\partial f_2}{\partial x^1} +\frac{\partial f_2}{\partial y^\alpha}\frac{\partial y^{(2)\alpha}}{\partial x^1} - \frac{\partial f_1}{\partial x^2} - \frac{\partial f_1}{\partial y^\alpha}f_2^\alpha \tag{**}
+\end{equation*}
+Из условий совместности следует, что
+$\frac{\partial f_2}{\partial x^1} -\frac{\partial f_1}{\partial x^2} =\frac{\partial f_1}{\partial y^\alpha}f_2^\alpha - \frac{\partial f_2}{\partial y^\alpha}f_1^\alpha$. 
+Тогда
+  \begin{equation*}
+  (\ref{eq:17.3}) = 
+   \frac{\partial f_1}{\partial y^\alpha}f_2^\alpha - \frac{\partial f_2}{\partial y^\alpha}f_1^\alpha +\frac{\partial f_2}{\partial y^\alpha}\frac{\partial y^{(2)\alpha}}{\partial x^1} - \frac{\partial f_1}{\partial y^\alpha}f_2^\alpha = 
+    \frac{\partial f_2}{\partial y^\alpha}(\frac{\partial y^{(2)\alpha}}{\partial x^1} -f_1^\alpha) 
+    \Rightarrow \frac{\partial g}{\partial x^2} = \frac{\partial f_2}{\partial y^\alpha}g^\alpha
+\end{equation*}
+  При $g|_{x^2 = x_0^2} = 0$. Поэтому по теоерме единственности система
+  \begin{equation*}
+    \left\{
+    \begin{aligned}
+      & \frac{\partial g}{\partial x^2} = \frac{\partial f_2}{\partial y^\alpha}g^\alpha \\
+      & g|_{x^2 = x_0^2} = 0
+    \end{aligned} 
+  \right.
+  \end{equation*} 
+имеет решение $g \equiv 0$ в некоторой окрестности точек $x_0^1, x_0^2$.
+  Аналогично для функций $y^{(k)}, f_k$, где $k = 3,\ldots, n$. В результате получаем функцию $y(x) = y^{(n)}(x)$, удовлетворяющую всем $n$ системам. \\
+  Так как 
+  \begin{align*}
+    y|_{x^n = x_0^n} &= \,y^{(n - 1)}(x^1,\ldots,x^{n-1}) \\
+    &\shortvdotswithin{=}
+    y|_{x^n = x_0^n,\ldots,x^2 = x_0^2} &= y^{(1)}(x^1, x_0^2,\ldots,x_0^n) \\
+    y|_{x^n = x_0^n,\ldots,x^1 = x_0^1} &= y^{(1)}(x_0^1, x_0^2,\ldots,x_0^n) = y^{(1)}|_{x^1=x_0^1}=y_0
+  \end{align*}
+  то $y(x)$ удовлетворяет начальному условию. \\ 
+  Докажем единственность: пусть в некоторой окрестности $x_0$ $y(x)$ -- решение $(\ref{eq:17})$ . Тогда рассмотрим функцию $y(x^1, x_0^2,\ldots, x_0^n)$, 
+  но это в точности $y^{(1)}$, так как она удовлетворяет системе $(\ref{eq:17.1})$, а у неё в свою очередь есть единственное решение.
+  Далее: $y(x^1, x^2, x_0^3,\ldots, x_0^n) = y^{(2)}$ поскольку она удовлетворяет $(\ref{eq:17.2})$ и $(\ref{eq:17.1})$ при $x^2 = x_0^2$. Таким образом в итоге получаем, что
+  $y(x^1,\ldots,x^n) = y^{(n)}$.
+\end{proof}
+\newpage
+\end{document}

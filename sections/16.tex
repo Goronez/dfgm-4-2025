@@ -1,0 +1,32 @@
+\documentclass[../cdg-all.tex]{subfiles}
+\begin{document}
+\section{Деривационные формулы Гаусса — Вейнгартена. Теорема единственности гиперповерхности с заданными
+первой и второй фундаментальными формами.}
+\begin{theorem}[Деривационные формулы Г-В]
+ \begin{equation*}
+   \left\{
+  \begin{aligned}
+    & \frac{\partial r_i}{\partial x^j} = \Gamma_{ij}^k r_k + b_{ij}m \\ 
+    & \frac{\partial m}{\partial x^j} = -\beta_j^k r_k, \beta_j^k = -g^{ik}b_{ij}
+  \end{aligned}
+   \right.
+ \end{equation*} 
+\end{theorem}
+\begin{proof}
+  \[ 
+  \frac{\partial r_s}{\partial x^i} = r_{si} = \Pi(r_{si}) + \nu_{si}, \text{где } \nu_{si}\perp T_P M
+  \]
+  По определению $\Pi(r_{si}) = \Gamma_{si}^k r_k$ и $\nu_{si} = (r_{si},m)m = b_{si}m$. Отсюда получаем первое равенство системы.\\
+  Заметим, что $(m, r_s) = 0$. Тогда 
+  \[
+    (\frac{\partial m}{\partial x^i}, r_s) + (m, \frac{\partial r_s}{\partial x^i}) = \beta_i^k(r_k,r_s) + b_{is} = 0
+  \]
+  так как $\frac{\partial m}{\partial x^i}$ является линейной комбинацией векторов $r_k$ с какими-то коэффициентами $\beta_i^k$. 
+  $(r_k,r_s) = g_{ks}$ и следовательно
+  \[
+    \beta_i^k = -g^{ks}b_{is}
+  \]
+  где $g^{ks}$ матрица обратная к $g_{ks}$. 
+\end{proof}
+\newpage
+\end{document}
